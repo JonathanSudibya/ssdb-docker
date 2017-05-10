@@ -3,7 +3,7 @@ FROM ubuntu:16.04
 WORKDIR /root
 
 RUN apt-get update &&\
-    apt-get install -y unzip &&\
+    apt-get install -y unzip zip curl &&\
     curl -L -O https://github.com/ideawu/ssdb/archive/master.zip &&\
     unzip master.zip &&\
     # clean up
