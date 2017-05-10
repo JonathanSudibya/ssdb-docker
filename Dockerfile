@@ -11,9 +11,9 @@ RUN apt-get update &&\
     # compile SSDB
     cd ssdb-master &&\
     make &&\
-    make isntall &&\
+    make install &&\
     # clean up
-    apt-get -y purge unzip unzip zip curl make autoconf &&\
+    apt-get -y purge unzip unzip zip curl make autoconf g++ &&\
     apt-get -y autoremove &&\
     apt-get -y clean all &&\
 
