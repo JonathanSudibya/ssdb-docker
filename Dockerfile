@@ -15,6 +15,6 @@ RUN apt-get update &&\
     # clean up
     apt-get -y purge unzip unzip zip curl make autoconf g++ &&\
     apt-get -y autoremove &&\
-    apt-get -y clean all &&\
+    apt-get -y clean all
 
 CMD ['/usr/bin/bash','/root/ssdb-master/ssdb-server','ssdb.conf']
