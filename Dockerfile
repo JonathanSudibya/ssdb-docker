@@ -8,9 +8,9 @@ RUN apt-get update &&\
     unzip master.zip &&\
     # clean up
     rm -f master.zip &&\
-    apt-get purge unzip &&\
-    apt-get autoremove &&\
-    apt-get clean all &&\
+    apt-get -y purge unzip &&\
+    apt-get -y autoremove &&\
+    apt-get -y clean all &&\
     # compile SSDB
     cd ssdb-master &&\
     make &&\
