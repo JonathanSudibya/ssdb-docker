@@ -6,14 +6,15 @@ RUN apt-get update &&\
     apt-get install -y unzip zip curl make &&\
     curl -L -O https://github.com/ideawu/ssdb/archive/master.zip &&\
     unzip master.zip &&\
-    # clean up
+    # clean up dir
     rm -f master.zip &&\
-    apt-get -y purge unzip unzip zip curl make &&\
-    apt-get -y autoremove &&\
-    apt-get -y clean all &&\
     # compile SSDB
     cd ssdb-master &&\
     make &&\
     make isntall
+    # clean up
+    apt-get -y purge unzip unzip zip curl make &&\
+    apt-get -y autoremove &&\
+    apt-get -y clean all &&\
 
 CMD ['/usr/bin/bash','/root/ssdb-master/ssdb-server','ssdb.conf']
