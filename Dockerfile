@@ -3,17 +3,18 @@ FROM ubuntu:16.04
 WORKDIR /root
 
 RUN apt-get update &&\
-    apt-get install -y unzip &&\
+    apt-get install -y unzip zip curl make autoconf g++ &&\
     curl -L -O https://github.com/ideawu/ssdb/archive/master.zip &&\
     unzip master.zip &&\
-    # clean up
+    # clean up dir
     rm -f master.zip &&\
-    apt-get purge unzip &&\
-    apt-get autoremove &&\
-    apt-get clean all &&\
     # compile SSDB
     cd ssdb-master &&\
     make &&\
-    make isntall
+    make install &&\
+    # clean up
+    apt-get -y purge unzip unzip zip curl make autoconf g++ &&\
+    apt-get -y autoremove &&\
+    apt-get -y clean all
 
 CMD ['/usr/bin/bash','/root/ssdb-master/ssdb-server','ssdb.conf']
