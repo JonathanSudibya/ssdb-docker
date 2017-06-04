@@ -17,4 +17,6 @@ RUN apt-get update &&\
     apt-get -y autoremove &&\
     apt-get -y clean all
 
-CMD ['/usr/bin/bash','/root/ssdb-master/ssdb-server','ssdb.conf']
+EXPOSE 8888
+
+CMD ["/root/ssdb-master/ssdb-server", "/root/ssdb-master/ssdb.conf"]
