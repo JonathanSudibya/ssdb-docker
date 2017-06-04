@@ -19,4 +19,4 @@ RUN apt-get update &&\
 
 EXPOSE 8888
 
-CMD ['/usr/bin/bash','/root/ssdb-master/ssdb-server','/root/ssdb-master/ssdb.conf']
+CMD ['/usr/bin/bash','/root/ssdb-master/ssdb-server /root/ssdb-master/ssdb.conf']
